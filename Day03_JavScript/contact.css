@@ -1,0 +1,83 @@
+.contact-form {
+  display: block;
+  margin-left: 0;
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  text-align: right;
+  margin-left: 20px;
+}
+
+.form-group label {
+  width: 120px;
+  margin-right: 10px;
+}
+
+.checkbox-group {
+  display: block;
+  margin-left: 0;
+  margin-bottom: 1.5rem;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.checkbox-group input {
+  margin-right: 10px;
+}
+
+.checkbox-item {
+  margin-left: 60px;
+  text-align: right;
+}
+
+.form-select-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.form-select-group label {
+  width: 120px;
+  margin-right: 10px;
+}
+
+.textarea-group {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.textarea-group label {
+  width: 100px;
+  margin-right: 10px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.buttons button {
+  margin-left: 100px;
+  width: 120px;
+  text-align: left;
+}
+
+.contact-info {
+  margin-left: 20px;
+  margin-bottom: 10px;
+}

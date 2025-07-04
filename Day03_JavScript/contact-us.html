@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Like Lion Fitness - Contact Us</title>
+    <link
+      rel="icon"
+      href="https://ktcstudent.likelion.edu.vn/_next/static/media/logo.8c5575fb.svg"
+    />
+    <link rel="stylesheet" href="./header.css" />
+    <link rel="stylesheet" href="./contact.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      #article {
+        text-align: left;
+        display: block;
+        max-width: 1000px;
+        margin: 0 auto;
+        margin-bottom: 10px;
+        background-color: white;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+        padding: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="banner">
+        <img src="./img/logo.png" alt="" />
+      </div>
+      <nav id="menu">
+        <span class="menu-item"><a href="index.html">Home</a></span>
+        <span class="menu-item"><a href="about-us.html">About Us</a></span>
+        <span class="menu-item"><a href="classes.html">Classes</a></span>
+        <span class="menu-item"><a href="nutrition.html">Nutrition</a></span>
+        <span class="menu-item"><a href="contact-us.html">Contact Us</a></span>
+      </nav>
+    </header>
+    <main>
+      <section id="article" style="margin-top: 0.5rem">
+        <h1>Ready to get started? Contact us today.</h1>
+        <h1>Complete the form below to begin your free trial.</h1>
+        <form
+          name="contactForm"
+          class="contact-form"
+          action="#"
+          method="get"
+          onsubmit="return validationForm()"
+        >
+          <div class="form-group">
+            <label for="first Name">First Name:</label>
+            <input type="text" id="first" name="first" required />
+          </div>
+          <div class="form-group">
+            <label for="last">Last Name:</label>
+            <input type="text" id="last" name="last" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required />
+          </div>
+          <p><strong>I would like information about:</strong></p>
+
+          <div class="checkbox-group">
+            <label
+              ><input type="checkbox" class="checkbox-item" />Group
+              Fitness</label
+            >
+            <label
+              ><input type="checkbox" class="checkbox-item" />Personal
+              training</label
+            >
+            <label
+              ><input type="checkbox" class="checkbox-item" />Nutrition</label
+            >
+          </div>
+
+          <div class="form-select-group">
+            <label for="referral">Referral Source:</label>
+            <select id="referral" name="referral">
+              <option value="ad">Advertisement</option>
+              <option value="friend">Friend</option>
+              <option value="social">Social Media</option>
+            </select>
+          </div>
+
+          <div class="form-group textarea-group">
+            <label for="question">Questions?</label>
+            <textarea
+              id="question"
+              name="question"
+              rows="3"
+              cols="30"
+            ></textarea>
+          </div>
+
+          <div class="buttons">
+            <button type="submit">Submit</button>
+            <button type="reset">Reset Form</button>
+          </div>
+        </form>
+        <div class="contact-info">
+          <label for="address">We are located at:</label>
+          <div>COBI TOWER 2, 2-4 Street 8, Tan Phu</div>
+          <div>District 7, Ho Chi Minh City</div>
+        </div>
+        <div class="contact-info">
+          <label for="tel">Phone Number:</label>
+          <div><a href="tel:0867133779" id="tel">0867 133 779</a></div>
+        </div>
+        <div class="contact-info">
+          <label for="email">Email Address:</label>
+          <div>
+            <a href="mailto:likelion.vn@likelion.net" id="email"
+              >likelion.vn@likelion.net</a
+            >
+          </div>
+        </div>
+      </section>
+      <div class="copyright">
+        Copyright &copy;2025. All Rights Reserved.<br />
+        <a href="likelion.vn@likelion.net" class="copyright">
+          likelion.vn@likelion.net
+        </a>
+      </div>
+    </main>
+
+    <script>
+      function validationForm() {
+        let form = document.forms["contactForm"];
+
+        let first = form["first"].value;
+        let last = form["last"].value;
+        let email = form["email"].value;
+        let phone = form["phone"].value;
+        let checkboxes = document.querySelectorAll(".checkbox-item");
+
+        if (first === "") {
+          alert("First name is required.");
+          form["first"].focus();
+          return false;
+        } else if (last === "") {
+          alert("Last name is required.");
+          form["last"].focus();
+          return false;
+        } else if (email === "") {
+          alert("Email is required.");
+          form["email"].focus();
+          return false;
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          alert("Please enter a valid email address.");
+          form["email"].focus();
+          return false;
+        } else if (phone === "") {
+          alert("Phone number is required.");
+          form["phone"].focus();
+          return false;
+        } else if (!/^\d{10,15}$/.test(phone)) {
+          alert("Please enter a valid phone number (10-15 digits).");
+          form["phone"].focus();
+          return false;
+        } else {
+          let checked = false;
+          for (const element of checkboxes) {
+            if (element.checked) {
+              checked = true;
+              break;
+            }
+          }
+          if (!checked) {
+            alert("Please select at least one area of interest.");
+            return false;
+          } else {
+            return true;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -8,14 +8,6 @@ export default function Calculator() {
   const [operator, setOperator] = useState<string | null>(null);
   const [overwrite, setOverwrite] = useState(false);
 
-  const buttons = [
-    ["AC", "+/-", "%", "÷"],
-    ["7", "8", "9", "×"],
-    ["4", "5", "6", "−"],
-    ["1", "2", "3", "+"],
-    ["0", ".", "="],
-  ];
-
   const appendDigit = (digit: string) => {
     if (overwrite || currentValue === "0") {
       setCurrentValue(digit);
@@ -88,10 +80,6 @@ export default function Calculator() {
     setCurrentValue((prev) =>
       prev.startsWith("-") ? prev.slice(1) : "-" + prev
     );
-  };
-
-  const percent = () => {
-    setCurrentValue((prev) => (parseFloat(prev) / 100).toString());
   };
 
   const handleClick = (label: string) => {

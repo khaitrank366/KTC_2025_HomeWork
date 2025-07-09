@@ -1,4 +1,3 @@
-import Button from "./Button";
 
 interface ButtonGridProps {
   onButtonClick: (label: string) => void;

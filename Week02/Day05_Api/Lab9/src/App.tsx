@@ -1,11 +1,11 @@
-import ProductList from "./components/main/product/ProductList";
-import AppRoutes from "./routes/AppRoutes";
+import "./App.css";
+// import TodoList from "./components/TodoList";
+import AppRoutes from './routes/AppRoutes';
 
 function App() {
   return (
-    <>
-      <AppRoutes />
-    </>
+    // <TodoList/>
+    <AppRoutes />
   );
 }
 

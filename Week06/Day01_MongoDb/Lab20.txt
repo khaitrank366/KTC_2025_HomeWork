@@ -1,0 +1,81 @@
+
+use lab20;
+------------------------------------------
+YÊU CẦU 1: Tạo collection products và chèn 3 sản phẩm
+------------------------------------------
+db.products.insertMany([
+  { name: "Laptop Dell Inspiron", price: 15000000, category: "Electronics" },
+  { name: "iPhone 13", price: 20000000, category: "Electronics" },
+  { name: "Áo thun nam", price: 250000, category: "Clothing" }
+]);
+
+------------------------------------------
+YÊU CẦU 2: Tạo collection orders và chèn 2 đơn hàng
+------------------------------------------
+db.orders.insertMany([
+  { orderId: "ORD001", customerName: "Nguyễn Văn A", orderDate: new Date("2025-08-01"), totalAmount: 15250000 },
+  { orderId: "ORD002", customerName: "Trần Thị B", orderDate: new Date("2025-08-02"), totalAmount: 20300000 }
+]);
+
+------------------------------------------
+YÊU CẦU 3: Chèn 5 user vào collection users
+------------------------------------------
+db.users.insertMany([
+  { name: "Phạm Quốc Dũng", email: "dungpq@example.com", age: 23 },
+  { name: "Hoàng Thu Trang", email: "tranght@example.com", age: 27 },
+  { name: "Lê Minh Tú", email: "tulm@example.com", age: 19 },
+  { name: "Nguyễn Anh Khoa", email: "khoana@example.com", age: 30 },
+  { name: "Trần Bảo Ngọc", email: "ngoc.tb@example.com", age: 25 }
+]);
+
+------------------------------------------
+YÊU CẦU 4: Tìm user có tuổi > 25, chỉ hiện name và email
+------------------------------------------
+db.users.find(
+  { age: { $gt: 25 } },
+  { name: 1, email: 1, _id: 0 }
+);
+
+------------------------------------------
+YÊU CẦU 5: Cập nhật tuổi của Alice thành 31
+------------------------------------------
+db.users.updateOne(
+  { name: "Alice" },
+  { $set: { age: 31 } }
+);
+
+------------------------------------------
+YÊU CẦU 6: Xoá user có tuổi < 20
+------------------------------------------
+db.users.deleteMany(
+  { age: { $lt: 20 } }
+);
+
+------------------------------------------
+YÊU CẦU 7: Tìm 3 người lớn tuổi nhất
+------------------------------------------
+db.users.find().sort({ age: -1 }).limit(3);
+
+------------------------------------------
+YÊU CẦU 8: Tìm 3 người lớn tuổi nhất, chỉ hiển thị name, age
+------------------------------------------
+db.users.find(
+  {},
+  { name: 1, age: 1, _id: 0 }
+).sort({ age: -1 }).limit(3);
+
+------------------------------------------
+YÊU CẦU 9: Đếm số user theo từng độ tuổi
+------------------------------------------
+db.users.aggregate([
+  { $group: { _id: "$age", count: { $sum: 1 } } }
+]);
+
+------------------------------------------
+YÊU CẦU 10: Tính tuổi trung bình của user >= 25
+------------------------------------------
+db.users.aggregate([
+  { $match: { age: { $gte: 25 } } },
+  { $group: { _id: null, averageAge: { $avg: "$age" } } }
+]);
+
